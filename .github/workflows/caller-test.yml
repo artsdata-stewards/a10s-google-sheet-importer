@@ -1,0 +1,11 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  call-workflow:
+    uses: ./.github/workflows/databus-a10-sheet-importer.yml
+    with:
+        spreadsheet_url: "https://capitol.nb.ca/en/tickets-events?filter_45=2024-"
+        artifact: "div.fc-item-block-standard-wrapper.odd a, div.fc-item-block-standard-wrapper.even a"
+        prefix: "capitolnb-events.jsonld"
+        publisher: "9"
