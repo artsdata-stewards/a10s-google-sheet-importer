@@ -9,4 +9,4 @@ jobs:
     with:
       spreadsheet_url: "https://docs.google.com/spreadsheets/d/1d_dZAPjEsBGLGvskRVkunZU9pmWcHdMyGXoR3-9a2Z8/export?format=csv&gid=2032887030"
       artifact: "thecultch-events-sheet"
-      publisher: "gregory"
+      publisher: "https://github.com/saumier#this"
