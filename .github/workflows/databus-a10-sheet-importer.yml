@@ -1,6 +1,21 @@
 name: Databus A10 Sheet Importer
 
 on:
+  workflow_dispatch:
+    inputs:
+      spreadsheet_url:
+        description: 'Google Spreadsheet /export?exportFormat=csv'
+        type: string
+        required: true
+      artifact:
+        description: 'Artifact'
+        type: string
+        required: true
+        default: 'test-events'
+      publisher:
+        description: 'Publisher ID'
+        type: string
+        required: true
   workflow_call:
     inputs:
       spreadsheet_url:
