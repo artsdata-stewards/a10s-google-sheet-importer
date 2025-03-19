@@ -1,4 +1,4 @@
-name: Call Databus A10 Sheet Importer
+name: Call importer test
 
 on:
   workflow_dispatch:
@@ -7,6 +7,6 @@ jobs:
   call-workflow:
     uses: ./.github/workflows/databus-a10-sheet-importer.yml
     with:
-      spreadsheet_url: "https://docs.google.com/spreadsheets/d/1d_dZAPjEsBGLGvskRVkunZU9pmWcHdMyGXoR3-9a2Z8/export?format=csv&gid=2032887030"
-      artifact: "thecultch-events-sheet"
+      spreadsheet_url: "https://docs.google.com/spreadsheets/d/1g_o9obh8h0e6sFKUl7C0LjADq5aqIWwgTDcSO4fYYK4/export?format=csv&gid=2032887030#gid=2032887030"
+      artifact: "gregory-uat"
       publisher: "https://github.com/saumier#this"
