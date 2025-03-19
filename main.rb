@@ -1,19 +1,21 @@
 #!/usr/bin/env ruby
 require 'linkeddata'
 
+# A10sPipeline loads a Google Sheet and extracts the JSON-LD from it
+# example url = "https://docs.google.com/spreadsheets/d/1g_o9obh8h0e6sFKUl7C0LjADq5aqIWwgTDcSO4fYYK4/export?format=csv&gid=2032887030"
+# automatically remove url fragment because it never reaches the server
 def A10sPipeline(**args)
   sheet_url = args[:sheet_url]
   artifact = args[:artifact]
  
-  # url = "https://docs.google.com/spreadsheets/d/1d_dZAPjEsBGLGvskRVkunZU9pmWcHdMyGXoR3-9a2Z8/export?format=csv&gid=2032887030"
+  sheet_url = sheet_url.split("#")[0]
   graph = RDF::Graph.load(sheet_url)
-
   solutions = graph.query([nil, RDF::URI.new("#{sheet_url}#jsonld"), nil])
   jsonld = []
   solutions.each do |solution|
     jsonld << JSON.parse(solution.object)
   end
-  
+
   File.open("./artifacts/#{artifact}.json", 'w') do |file|
     file.puts(jsonld.to_json)
   end
